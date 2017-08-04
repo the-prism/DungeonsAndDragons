@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace DragonLibUnitTests
 {
     [TestClass]
-    public class UnitTest1
+    public class Runtime
     {
         [TestMethod]
         public void TestMethod1()
