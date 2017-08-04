@@ -131,6 +131,12 @@
       <Version>5.2.3</Version>
     </PackageReference>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Common\DragonLib\DragonLib.csproj">
+      <Project>{ea42d9e7-4c10-4f6d-a364-2b05590bcd43}</Project>
+      <Name>DragonLib</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
