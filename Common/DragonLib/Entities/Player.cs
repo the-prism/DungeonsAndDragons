@@ -8,7 +8,7 @@ namespace DragonLib.Entities
     public class Player : Entity
     {
         protected string Owner;
-        Player() : base() { }
+        public Player() : base() { }
 
         /// <summary>
         /// Get the player that owns this unit
