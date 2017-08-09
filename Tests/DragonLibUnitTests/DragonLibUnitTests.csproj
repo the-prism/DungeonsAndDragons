@@ -52,6 +52,7 @@
     <Compile Include="Environnement\BoardTest.cs" />
     <Compile Include="Runtime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Types\PositionTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
