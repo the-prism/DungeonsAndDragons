@@ -47,5 +47,34 @@ namespace DragonLib.Types
         {
             this.Layer = Layer;
         }
+
+        /// <summary>
+        /// Adds or substracts to the current position.
+        /// </summary>
+        /// <param name="AmountX"></param>
+        /// <param name="AmountY"></param>
+        public void Move(int AmountX, int AmountY)
+        {
+            PositionX += AmountX;
+            PositionY += AmountY;
+        }
+
+        /// <summary>
+        /// Move the X position by the specified amount.
+        /// </summary>
+        /// <param name="Amount"></param>
+        public void MoveX(int Amount)
+        {
+            Move(Amount, 0);
+        }
+
+        /// <summary>
+        /// Move the Y position by the specified amount.
+        /// </summary>
+        /// <param name="Amount"></param>
+        public void MoveY(int Amount)
+        {
+            Move(0, Amount);
+        }
     }
 }
