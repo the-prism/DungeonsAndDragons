@@ -10,6 +10,11 @@ namespace DragonLib.Entities
         protected Position BoardPosition;
         protected string Location;
 
+        public Entity()
+        {
+            BoardPosition = new Position(0, 0);
+        }
+
         /// <summary>
         /// Move the entiry to a new coordonate.
         /// </summary>

@@ -10,6 +10,12 @@ namespace DragonLib.Types
         public int PositionY { get; protected set; }
         public int Layer { get; protected set; }
 
+        public Position(int PositionX, int PositionY)
+        {
+            this.PositionX = PositionX;
+            this.PositionY = PositionY;
+        }
+
         /// <summary>
         /// Change the coordinates.
         /// </summary>

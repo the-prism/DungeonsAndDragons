@@ -23,7 +23,7 @@ namespace DragonLibUnitTests.Entities
             Player test = new Player();
             test.MoveTo(4, 67);
             Position result = test.GetPosition();
-            Assert.AreEqual(67, result.PositionX);
+            Assert.AreEqual(67, result.PositionY);
         }
     }
 }
