@@ -81,5 +81,10 @@ namespace DragonLib.Types
         {
             Move(0, Amount);
         }
+
+        public bool IsOutOfBounds(Boundaries Bounds)
+        {
+
+        }
     }
 }

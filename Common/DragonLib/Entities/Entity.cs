@@ -9,6 +9,7 @@ namespace DragonLib.Entities
     {
         protected Position BoardPosition;
         protected string Location;
+        protected Boundaries Bounds;
 
         public Entity()
         {
