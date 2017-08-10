@@ -70,5 +70,77 @@ namespace DragonLibUnitTests.Types
             position.MoveY(-2);
             Assert.AreEqual(3, position.PositionY);
         }
+
+        [TestMethod]
+        public void TestMovingGlobalPositiveXNoY()
+        {
+            Position position = new Position(0, 0);
+            position.Move(5, 0);
+            Assert.AreEqual(5, position.PositionX);
+            Assert.AreEqual(0, position.PositionY);
+        }
+
+        [TestMethod]
+        public void TestMovingGlobalNegativeXNoY()
+        {
+            Position position = new Position(0, 0);
+            position.Move(-5, 0);
+            Assert.AreEqual(-5, position.PositionX);
+            Assert.AreEqual(0, position.PositionY);
+        }
+
+        [TestMethod]
+        public void TestMovingGlobalPositiveXPositiveY()
+        {
+            Position position = new Position(0, 0);
+            position.Move(5, 5);
+            Assert.AreEqual(5, position.PositionX);
+            Assert.AreEqual(5, position.PositionY);
+        }
+
+        [TestMethod]
+        public void TestMovingGlobalNegativeXPositiveY()
+        {
+            Position position = new Position(0, 0);
+            position.Move(-5, 5);
+            Assert.AreEqual(-5, position.PositionX);
+            Assert.AreEqual(5, position.PositionY);
+        }
+
+        [TestMethod]
+        public void TestMovingGlobalPositiveXNegativeY()
+        {
+            Position position = new Position(0, 0);
+            position.Move(5, -5);
+            Assert.AreEqual(5, position.PositionX);
+            Assert.AreEqual(-5, position.PositionY);
+        }
+
+        [TestMethod]
+        public void TestMovingGlobalNegativeXNegativeY()
+        {
+            Position position = new Position(0, 0);
+            position.Move(-5, -5);
+            Assert.AreEqual(-5, position.PositionX);
+            Assert.AreEqual(-5, position.PositionY);
+        }
+
+        [TestMethod]
+        public void TestMovingGlobalNoXPositiveY()
+        {
+            Position position = new Position(0, 0);
+            position.Move(0, 5);
+            Assert.AreEqual(0, position.PositionX);
+            Assert.AreEqual(5, position.PositionY);
+        }
+
+        [TestMethod]
+        public void TestMovingGlobalNoXNegativeY()
+        {
+            Position position = new Position(0, 0);
+            position.Move(0, -5);
+            Assert.AreEqual(0, position.PositionX);
+            Assert.AreEqual(-5, position.PositionY);
+        }
     }
 }
