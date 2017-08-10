@@ -13,7 +13,7 @@ namespace DragonLib.Types
         public int MinLayer { get; protected set; }
         public int MaxLayer { get; protected set; }
         public bool IgnoreLayer { get; protected set; }
-        
+
         /// <summary>
         /// Builds boudaries with the specified coordinates
         /// </summary>
@@ -87,6 +87,33 @@ namespace DragonLib.Types
         public void SetIgnoreLayer(bool value)
         {
             IgnoreLayer = value;
+        }
+
+        public bool IsInsideBounds(Position position)
+        {
+            if (IgnoreLayer)
+            {
+                return IsInsideXBounds(position.PositionX) && IsInsideYBounds(position.PositionY);
+            }
+            else
+            {
+                return IsInsideXBounds(position.PositionX) && IsInsideYBounds(position.PositionY) && IsInsideLayerBounds(position.Layer);
+            }
+        }
+
+        public bool IsInsideXBounds(int position)
+        {
+            return position >= MinX && position <= MaxX;
+        }
+
+        public bool IsInsideYBounds(int position)
+        {
+            return position >= MinY && position <= MaxY;
+        }
+
+        public bool IsInsideLayerBounds(int layer)
+        {
+            return layer >= MinLayer && layer <= MaxLayer;
         }
     }
 }

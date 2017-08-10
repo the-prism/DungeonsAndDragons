@@ -84,22 +84,22 @@ namespace DragonLib.Types
 
         public bool IsOutOfBounds(Boundaries bounds)
         {
-            return IsOutOfBoundsX(bounds) && IsOutOfBoundsY(bounds) && IsOutOfBoundsLayer(bounds);
+            return !bounds.IsInsideBounds(this);
         }
 
         private bool IsOutOfBoundsX(Boundaries bounds)
         {
-            return (PositionX >= bounds.MinX) && (PositionX <= bounds.MaxX);
+            return !bounds.IsInsideXBounds(this.PositionX);
         }
 
         private bool IsOutOfBoundsY(Boundaries bounds)
         {
-            return (PositionY >= bounds.MinY) && (PositionY <= bounds.MaxY);
+            return !bounds.IsInsideYBounds(this.PositionY);
         }
 
         private bool IsOutOfBoundsLayer(Boundaries bounds)
         {
-            return (Layer >= bounds.MinLayer) && (Layer <= bounds.MaxLayer);
+            return !bounds.IsInsideLayerBounds(this.Layer);
         }
     }
 }
