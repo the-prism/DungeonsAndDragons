@@ -12,8 +12,8 @@ namespace DragonLib.Types
         public int MaxY { get; protected set; }
         public int MinLayer { get; protected set; }
         public int MaxLayer { get; protected set; }
-
-
+        public bool IgnoreLayer { get; protected set; }
+        
         /// <summary>
         /// Builds boudaries with the specified coordinates
         /// </summary>
@@ -82,6 +82,11 @@ namespace DragonLib.Types
         {
             MinY = Min;
             MaxY = Max;
+        }
+
+        public void SetIgnoreLayer(bool Value)
+        {
+            IgnoreLayer = Value;
         }
     }
 }
