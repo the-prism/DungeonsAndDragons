@@ -16,12 +16,17 @@ namespace DragonLib.Types
             this.PositionY = PositionY;
         }
 
+        public Position(int PositionX, int PositionY, int Layer) : this(PositionX, PositionY)
+        {
+            this.Layer = Layer;
+        }
+
         /// <summary>
         /// Change the coordinates.
         /// </summary>
         /// <param name="PositionX">New x position</param>
         /// <param name="PositionY">New y position</param>
-        public void ChangePosition (int PositionX, int PositionY)
+        public void ChangePosition(int PositionX, int PositionY)
         {
             this.PositionX = PositionX;
             this.PositionY = PositionY;

@@ -22,6 +22,13 @@ namespace DragonLibUnitTests.Types
         }
 
         [TestMethod]
+        public void TestPositionConstructorLayer()
+        {
+            Position position = new Position(0, 0, 5);
+            Assert.AreEqual(5, position.Layer);
+        }
+
+        [TestMethod]
         public void TestPositionChangeX()
         {
             Position position = new Position(0, 23);
