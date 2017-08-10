@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -17,76 +17,76 @@ namespace DragonLib.Types
         /// <summary>
         /// Builds boudaries with the specified coordinates
         /// </summary>
-        /// <param name="MinX"></param>
-        /// <param name="MaxX"></param>
-        /// <param name="MinY"></param>
-        /// <param name="MaxY"></param>
-        public Boundaries(int MinX, int MaxX, int MinY, int MaxY)
+        /// <param name="minX"></param>
+        /// <param name="maxX"></param>
+        /// <param name="minY"></param>
+        /// <param name="maxY"></param>
+        public Boundaries(int minX, int maxX, int minY, int maxY)
         {
-            this.MinX = MinX;
-            this.MaxX = MaxX;
-            this.MinY = MinY;
-            this.MaxY = MaxY;
+            this.MinX = minX;
+            this.MaxX = maxX;
+            this.MinY = minY;
+            this.MaxY = maxY;
         }
 
         /// <summary>
         /// Builds boudaries fron 0,0 to the specified values
         /// </summary>
-        /// <param name="MaxX"></param>
-        /// <param name="MaxY"></param>
-        public Boundaries(int MaxX, int MaxY) : this(0, MaxX, 0, MaxY) { }
+        /// <param name="maxX"></param>
+        /// <param name="maxY"></param>
+        public Boundaries(int maxX, int maxY) : this(0, maxX, 0, maxY) { }
 
         /// <summary>
         /// Builds boudaries with the specified coordinates and layers
         /// </summary>
-        /// <param name="MinX"></param>
-        /// <param name="MaxX"></param>
-        /// <param name="MinY"></param>
-        /// <param name="MaxY"></param>
-        /// <param name="MinLayer"></param>
-        /// <param name="MaxLayer"></param>
-        public Boundaries(int MinX, int MaxX, int MinY, int MaxY, int MinLayer, int MaxLayer) : this(MinX, MaxX, MinY, MaxY)
+        /// <param name="minX"></param>
+        /// <param name="maxX"></param>
+        /// <param name="minY"></param>
+        /// <param name="maxY"></param>
+        /// <param name="minLayer"></param>
+        /// <param name="maxLayer"></param>
+        public Boundaries(int minX, int maxX, int minY, int maxY, int minLayer, int maxLayer) : this(minX, maxX, minY, maxY)
         {
-            this.MinLayer = MinLayer;
-            this.MaxLayer = MaxLayer;
+            this.MinLayer = minLayer;
+            this.MaxLayer = maxLayer;
         }
 
         /// <summary>
         /// Sets the layer boudaries
         /// </summary>
-        /// <param name="Min"></param>
-        /// <param name="Max"></param>
-        public void SetLayers(int Min, int Max)
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        public void SetLayers(int min, int max)
         {
-            MinLayer = Min;
-            MaxLayer = Max;
+            MinLayer = min;
+            MaxLayer = max;
         }
 
         /// <summary>
         /// Sets the boudaries for the x coordinates
         /// </summary>
-        /// <param name="Min"></param>
-        /// <param name="Max"></param>
-        public void SetXBoudaries(int Min, int Max)
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        public void SetXBoudaries(int min, int max)
         {
-            MinX = Min;
-            MaxX = Max;
+            MinX = min;
+            MaxX = max;
         }
 
         /// <summary>
         /// Sets the boudaries for the y coordinates
         /// </summary>
-        /// <param name="Min"></param>
-        /// <param name="Max"></param>
-        public void SetYBoudaries(int Min, int Max)
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        public void SetYBoudaries(int min, int max)
         {
-            MinY = Min;
-            MaxY = Max;
+            MinY = min;
+            MaxY = max;
         }
 
-        public void SetIgnoreLayer(bool Value)
+        public void SetIgnoreLayer(bool value)
         {
-            IgnoreLayer = Value;
+            IgnoreLayer = value;
         }
     }
 }

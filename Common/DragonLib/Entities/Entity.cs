@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 using DragonLib.Types;
@@ -21,9 +21,9 @@ namespace DragonLib.Entities
         /// </summary>
         /// <param name="PositionX">New x position</param>
         /// <param name="PositionY">New y position</param>
-        public void MoveTo(int PositionX, int PositionY)
+        public void MoveTo(int positionX, int positionY)
         {
-            BoardPosition.ChangePosition(PositionX, PositionY);
+            BoardPosition.ChangePosition(positionX, positionY);
         }
 
         public Position GetPosition()

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,96 +10,96 @@ namespace DragonLib.Types
         public int PositionY { get; protected set; }
         public int Layer { get; protected set; }
 
-        public Position(int PositionX, int PositionY)
+        public Position(int positionX, int positionY)
         {
-            this.PositionX = PositionX;
-            this.PositionY = PositionY;
+            this.PositionX = positionX;
+            this.PositionY = positionY;
         }
 
-        public Position(int PositionX, int PositionY, int Layer) : this(PositionX, PositionY)
+        public Position(int positionX, int positionY, int layer) : this(positionX, positionY)
         {
-            this.Layer = Layer;
+            this.Layer = layer;
         }
 
         /// <summary>
         /// Change the coordinates.
         /// </summary>
-        /// <param name="PositionX">New x position</param>
-        /// <param name="PositionY">New y position</param>
-        public void ChangePosition(int PositionX, int PositionY)
+        /// <param name="positionX">New x position</param>
+        /// <param name="positionY">New y position</param>
+        public void ChangePosition(int positionX, int positionY)
         {
-            this.PositionX = PositionX;
-            this.PositionY = PositionY;
+            this.PositionX = positionX;
+            this.PositionY = positionY;
         }
 
         /// <summary>
         /// Change the coordinates and the layer.
         /// </summary>
-        /// <param name="PositionX">New x position</param>
-        /// <param name="PositionY">New y position</param>
-        /// <param name="Layer">New layer</param>
-        public void ChangePosition(int PositionX, int PositionY, int Layer)
+        /// <param name="positionX">New x position</param>
+        /// <param name="positionY">New y position</param>
+        /// <param name="layer">New layer</param>
+        public void ChangePosition(int positionX, int positionY, int layer)
         {
-            ChangePosition(PositionX, PositionY);
-            ChangeLayer(Layer);
+            ChangePosition(positionX, positionY);
+            ChangeLayer(layer);
         }
 
         /// <summary>
         /// Change the layer.
         /// </summary>
-        /// <param name="Layer"></param>
-        public void ChangeLayer(int Layer)
+        /// <param name="layer"></param>
+        public void ChangeLayer(int layer)
         {
-            this.Layer = Layer;
+            this.Layer = layer;
         }
 
         /// <summary>
         /// Adds or substracts to the current position.
         /// </summary>
-        /// <param name="AmountX"></param>
-        /// <param name="AmountY"></param>
-        public void Move(int AmountX, int AmountY)
+        /// <param name="amountX"></param>
+        /// <param name="amountY"></param>
+        public void Move(int amountX, int amountY)
         {
-            PositionX += AmountX;
-            PositionY += AmountY;
+            PositionX += amountX;
+            PositionY += amountY;
         }
 
         /// <summary>
         /// Move the X position by the specified amount.
         /// </summary>
         /// <param name="Amount"></param>
-        public void MoveX(int Amount)
+        public void MoveX(int amount)
         {
-            Move(Amount, 0);
+            Move(amount, 0);
         }
 
         /// <summary>
         /// Move the Y position by the specified amount.
         /// </summary>
-        /// <param name="Amount"></param>
-        public void MoveY(int Amount)
+        /// <param name="amount"></param>
+        public void MoveY(int amount)
         {
-            Move(0, Amount);
+            Move(0, amount);
         }
 
-        public bool IsOutOfBounds(Boundaries Bounds)
+        public bool IsOutOfBounds(Boundaries bounds)
         {
-            return IsOutOfBoundsX(Bounds) && IsOutOfBoundsY(Bounds) && IsOutOfBoundsLayer(Bounds);
+            return IsOutOfBoundsX(bounds) && IsOutOfBoundsY(bounds) && IsOutOfBoundsLayer(bounds);
         }
 
-        private bool IsOutOfBoundsX(Boundaries Bounds)
+        private bool IsOutOfBoundsX(Boundaries bounds)
         {
-            return (PositionX >= Bounds.MinX) && (PositionX <= Bounds.MaxX);
+            return (PositionX >= bounds.MinX) && (PositionX <= bounds.MaxX);
         }
 
-        private bool IsOutOfBoundsY(Boundaries Bounds)
+        private bool IsOutOfBoundsY(Boundaries bounds)
         {
-            return (PositionY >= Bounds.MinY) && (PositionY <= Bounds.MaxY);
+            return (PositionY >= bounds.MinY) && (PositionY <= bounds.MaxY);
         }
 
-        private bool IsOutOfBoundsLayer(Boundaries Bounds)
+        private bool IsOutOfBoundsLayer(Boundaries bounds)
         {
-            return (Layer >= Bounds.MinLayer) && (Layer <= Bounds.MaxLayer);
+            return (Layer >= bounds.MinLayer) && (Layer <= bounds.MaxLayer);
         }
     }
 }
