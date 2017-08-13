@@ -16,6 +16,13 @@ namespace DragonLib.Entities
             BoardPosition = new Position(0, 0);
         }
 
+        public Entity(int positionX, int positionY) : this(positionX, positionY, 0) { }
+
+        public Entity(int positionX, int positionY, int layer)
+        {
+            BoardPosition = new Position(positionX, positionY, layer);
+        }
+
         /// <summary>
         /// Move the entiry to a new coordonate.
         /// </summary>

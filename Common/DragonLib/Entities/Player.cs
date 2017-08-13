@@ -10,6 +10,10 @@ namespace DragonLib.Entities
         protected string Owner;
         public Player() : base() { }
 
+        public Player(int positionX, int positionY) : base(positionX, positionY) { }
+
+        public Player(int positionX, int positionY, int layer) : base(positionX, positionY, layer) { }
+
         /// <summary>
         /// Get the player that owns this unit
         /// </summary>
