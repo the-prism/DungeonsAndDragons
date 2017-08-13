@@ -82,22 +82,22 @@ namespace DragonLib.Types
             Move(0, amount);
         }
 
-        public bool IsOutOfBounds(Boundaries bounds)
+        public bool IsOutOfBounds(Bounds bounds)
         {
             return !bounds.IsInsideBounds(this);
         }
 
-        private bool IsOutOfBoundsX(Boundaries bounds)
+        private bool IsOutOfBoundsX(Bounds bounds)
         {
             return !bounds.IsInsideXBounds(this.PositionX);
         }
 
-        private bool IsOutOfBoundsY(Boundaries bounds)
+        private bool IsOutOfBoundsY(Bounds bounds)
         {
             return !bounds.IsInsideYBounds(this.PositionY);
         }
 
-        private bool IsOutOfBoundsLayer(Boundaries bounds)
+        private bool IsOutOfBoundsLayer(Bounds bounds)
         {
             return !bounds.IsInsideLayerBounds(this.Layer);
         }

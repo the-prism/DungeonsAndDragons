@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DragonLib.Types
 {
-    public class Boundaries
+    public class Bounds
     {
         public int MinX { get; protected set; }
         public int MaxX { get; protected set; }
@@ -21,7 +21,7 @@ namespace DragonLib.Types
         /// <param name="maxX"></param>
         /// <param name="minY"></param>
         /// <param name="maxY"></param>
-        public Boundaries(int minX, int maxX, int minY, int maxY)
+        public Bounds(int minX, int maxX, int minY, int maxY)
         {
             this.MinX = minX;
             this.MaxX = maxX;
@@ -34,7 +34,7 @@ namespace DragonLib.Types
         /// </summary>
         /// <param name="maxX"></param>
         /// <param name="maxY"></param>
-        public Boundaries(int maxX, int maxY) : this(0, maxX, 0, maxY) { }
+        public Bounds(int maxX, int maxY) : this(0, maxX, 0, maxY) { }
 
         /// <summary>
         /// Builds boudaries with the specified coordinates and layers
@@ -45,7 +45,7 @@ namespace DragonLib.Types
         /// <param name="maxY"></param>
         /// <param name="minLayer"></param>
         /// <param name="maxLayer"></param>
-        public Boundaries(int minX, int maxX, int minY, int maxY, int minLayer, int maxLayer) : this(minX, maxX, minY, maxY)
+        public Bounds(int minX, int maxX, int minY, int maxY, int minLayer, int maxLayer) : this(minX, maxX, minY, maxY)
         {
             this.MinLayer = minLayer;
             this.MaxLayer = maxLayer;
