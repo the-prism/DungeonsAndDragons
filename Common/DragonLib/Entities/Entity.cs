@@ -26,6 +26,10 @@ namespace DragonLib.Entities
             BoardPosition.ChangePosition(positionX, positionY);
         }
 
+        /// <summary>
+        /// Return the position of the entity on the board.
+        /// </summary>
+        /// <returns></returns>
         public Position GetPosition()
         {
             return BoardPosition;

@@ -82,16 +82,21 @@ namespace DragonLib.Types
             Move(0, amount);
         }
 
+        /// <summary>
+        /// Verify if the position is inside the bounds.
+        /// </summary>
+        /// <param name="bounds"></param>
+        /// <returns></returns>
         public bool IsOutOfBounds(Bounds bounds)
         {
             return !bounds.IsInsideBounds(this);
         }
-
+        
         private bool IsOutOfBoundsX(Bounds bounds)
         {
             return !bounds.IsInsideXBounds(this.PositionX);
         }
-
+        
         private bool IsOutOfBoundsY(Bounds bounds)
         {
             return !bounds.IsInsideYBounds(this.PositionY);

@@ -84,11 +84,20 @@ namespace DragonLib.Types
             MaxY = max;
         }
 
+        /// <summary>
+        /// Specify weather or not to conside the layer bounds
+        /// </summary>
+        /// <param name="value"></param>
         public void SetIgnoreLayer(bool value)
         {
             IgnoreLayer = value;
         }
 
+        /// <summary>
+        /// Verify if the position is inside the bounds
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public bool IsInsideBounds(Position position)
         {
             if (IgnoreLayer)
@@ -101,16 +110,31 @@ namespace DragonLib.Types
             }
         }
 
+        /// <summary>
+        /// Verify is the value is inside the x bounds
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public bool IsInsideXBounds(int position)
         {
             return position >= MinX && position <= MaxX;
         }
 
+        /// <summary>
+        /// Verify is the value is inside the y bounds
+        /// </summary>
+        /// <param name="position"></param>
+        /// <returns></returns>
         public bool IsInsideYBounds(int position)
         {
             return position >= MinY && position <= MaxY;
         }
 
+        /// <summary>
+        /// Verfiy is the value is between the layer bounds
+        /// </summary>
+        /// <param name="layer"></param>
+        /// <returns></returns>
         public bool IsInsideLayerBounds(int layer)
         {
             return layer >= MinLayer && layer <= MaxLayer;

@@ -57,7 +57,7 @@ namespace DragonLibUnitTests.Types
         public void TestIsInsideBoundsY()
         {
             Bounds limit = new Bounds(-2, 2, -2, 2);
-            bool result = limit.IsInsideXBounds(-2);
+            bool result = limit.IsInsideYBounds(-2);
             Assert.AreEqual(true, result);
         }
 
