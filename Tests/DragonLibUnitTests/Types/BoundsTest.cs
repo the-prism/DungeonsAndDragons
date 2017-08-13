@@ -69,5 +69,27 @@ namespace DragonLibUnitTests.Types
             bool result = limit.IsInsideBounds(position);
             Assert.AreEqual(false, result);
         }
+
+        [TestMethod]
+        public void IsInsideBoundsIgnoreLayer()
+        {
+            Bounds limit = new Bounds(-2, 2, -2, 2);
+            limit.SetLayers(-1, 1);
+            limit.SetIgnoreLayer(true);
+            Position position = new Position(0, 0, 5);
+            bool result = limit.IsInsideBounds(position);
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void IsInsideBoundsFactorLayer()
+        {
+            Bounds limit = new Bounds(-2, 2, -2, 2);
+            limit.SetLayers(-1, 1);
+            limit.SetIgnoreLayer(false);
+            Position position = new Position(0, 0, 5);
+            bool result = limit.IsInsideBounds(position);
+            Assert.AreEqual(false, result);
+        }
     }
 }
