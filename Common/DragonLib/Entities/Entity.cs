@@ -34,6 +34,16 @@ namespace DragonLib.Entities
         }
 
         /// <summary>
+        /// Move the entity by the specified amount.
+        /// </summary>
+        /// <param name="amountX"></param>
+        /// <param name="amountY"></param>
+        public void Move(int amountX, int amountY)
+        {
+            BoardPosition.Move(amountX, amountY);
+        }
+
+        /// <summary>
         /// Return the position of the entity on the board.
         /// </summary>
         /// <returns></returns>

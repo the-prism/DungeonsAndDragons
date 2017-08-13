@@ -25,5 +25,14 @@ namespace DragonLibUnitTests.Entities
             Position result = test.GetPosition();
             Assert.AreEqual(67, result.PositionY);
         }
+
+        [TestMethod]
+        public void TestPlayerEntity()
+        {
+            Entity item = new Player(4, 3);
+            item.Move(-2, -1);
+            Assert.AreEqual(2, item.GetPosition().PositionX);
+            Assert.AreEqual(2, item.GetPosition().PositionY);
+        }
     }
 }
