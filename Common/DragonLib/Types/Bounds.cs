@@ -17,10 +17,10 @@ namespace DragonLib.Types
         /// <summary>
         /// Builds boudaries with the specified coordinates
         /// </summary>
-        /// <param name="minX"></param>
-        /// <param name="maxX"></param>
-        /// <param name="minY"></param>
-        /// <param name="maxY"></param>
+        /// <param name="minX">Minimum value for the X coordinates</param>
+        /// <param name="maxX">Maximum value for the X coordinates</param>
+        /// <param name="minY">Minimum value for the Y coordinates</param>
+        /// <param name="maxY">Maximum value for the Y coordinates</param>
         public Bounds(int minX, int maxX, int minY, int maxY)
         {
             this.MinX = minX;
@@ -32,19 +32,19 @@ namespace DragonLib.Types
         /// <summary>
         /// Builds boudaries fron 0,0 to the specified values
         /// </summary>
-        /// <param name="maxX"></param>
-        /// <param name="maxY"></param>
+        /// <param name="maxX">Maximum value for the X coordinates</param>
+        /// <param name="maxY">Maximum value for the Y coordinates</param>
         public Bounds(int maxX, int maxY) : this(0, maxX, 0, maxY) { }
 
         /// <summary>
         /// Builds boudaries with the specified coordinates and layers
         /// </summary>
-        /// <param name="minX"></param>
-        /// <param name="maxX"></param>
-        /// <param name="minY"></param>
-        /// <param name="maxY"></param>
-        /// <param name="minLayer"></param>
-        /// <param name="maxLayer"></param>
+        /// <param name="minX">Minimum value for the X coordinates</param>
+        /// <param name="maxX">Maximum value for the X coordinates</param>
+        /// <param name="minY">Minimum value for the Y coordinates</param>
+        /// <param name="maxY">Maximum value for the Y coordinates</param>
+        /// <param name="minLayer">Minimum value for the layer position</param>
+        /// <param name="maxLayer">Maximum value for the layer position</param>
         public Bounds(int minX, int maxX, int minY, int maxY, int minLayer, int maxLayer) : this(minX, maxX, minY, maxY)
         {
             this.MinLayer = minLayer;
@@ -54,8 +54,8 @@ namespace DragonLib.Types
         /// <summary>
         /// Sets the layer boudaries
         /// </summary>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
+        /// <param name="min">Minimum value for the layer position</param>
+        /// <param name="max">Maximum value for the layer position</param>
         public void SetLayers(int min, int max)
         {
             MinLayer = min;
@@ -65,8 +65,8 @@ namespace DragonLib.Types
         /// <summary>
         /// Sets the boudaries for the x coordinates
         /// </summary>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
+        /// <param name="min">Minimum value for the X coordinates</param>
+        /// <param name="max">Maximum value for the X coordinates</param>
         public void SetXBoudaries(int min, int max)
         {
             MinX = min;
@@ -76,8 +76,8 @@ namespace DragonLib.Types
         /// <summary>
         /// Sets the boudaries for the y coordinates
         /// </summary>
-        /// <param name="min"></param>
-        /// <param name="max"></param>
+        /// <param name="min">Minimum value for the Y coordinates</param>
+        /// <param name="max">Maximum value for the Y coordinates</param>
         public void SetYBoudaries(int min, int max)
         {
             MinY = min;
@@ -87,7 +87,7 @@ namespace DragonLib.Types
         /// <summary>
         /// Specify weather or not to conside the layer bounds
         /// </summary>
-        /// <param name="value"></param>
+        /// <param name="value">Should the layer be ignored</param>
         public void SetIgnoreLayer(bool value)
         {
             IgnoreLayer = value;
@@ -96,7 +96,7 @@ namespace DragonLib.Types
         /// <summary>
         /// Verify if the position is inside the bounds
         /// </summary>
-        /// <param name="position"></param>
+        /// <param name="position">Position with coodinates to verify</param>
         /// <returns></returns>
         public bool IsInsideBounds(Position position)
         {
@@ -113,7 +113,7 @@ namespace DragonLib.Types
         /// <summary>
         /// Verify is the value is inside the x bounds
         /// </summary>
-        /// <param name="position"></param>
+        /// <param name="position">Value to check if it's inside the X bounds</param>
         /// <returns></returns>
         public bool IsInsideXBounds(int position)
         {
@@ -123,7 +123,7 @@ namespace DragonLib.Types
         /// <summary>
         /// Verify is the value is inside the y bounds
         /// </summary>
-        /// <param name="position"></param>
+        /// <param name="position">Value to check if it's inside the Y bounds</param>
         /// <returns></returns>
         public bool IsInsideYBounds(int position)
         {
@@ -133,7 +133,7 @@ namespace DragonLib.Types
         /// <summary>
         /// Verfiy is the value is between the layer bounds
         /// </summary>
-        /// <param name="layer"></param>
+        /// <param name="layer">Value to check if it's inside the layer bounds</param>
         /// <returns></returns>
         public bool IsInsideLayerBounds(int layer)
         {
