@@ -47,7 +47,7 @@ namespace DragonLib.Types
         /// <summary>
         /// Change the layer.
         /// </summary>
-        /// <param name="layer"></param>
+        /// <param name="layer">New layer position</param>
         public void ChangeLayer(int layer)
         {
             this.Layer = layer;
@@ -56,8 +56,8 @@ namespace DragonLib.Types
         /// <summary>
         /// Adds or substracts to the current position.
         /// </summary>
-        /// <param name="amountX"></param>
-        /// <param name="amountY"></param>
+        /// <param name="amountX">Value to move X coordinate</param>
+        /// <param name="amountY">Value to move Y coordinate</param>
         public void Move(int amountX, int amountY)
         {
             PositionX += amountX;
@@ -67,7 +67,7 @@ namespace DragonLib.Types
         /// <summary>
         /// Move the X position by the specified amount.
         /// </summary>
-        /// <param name="Amount"></param>
+        /// <param name="amount">Value to move X coordinate</param>
         public void MoveX(int amount)
         {
             Move(amount, 0);
@@ -76,7 +76,7 @@ namespace DragonLib.Types
         /// <summary>
         /// Move the Y position by the specified amount.
         /// </summary>
-        /// <param name="amount"></param>
+        /// <param name="amount">Value to move Y coordinate</param>
         public void MoveY(int amount)
         {
             Move(0, amount);
@@ -85,7 +85,7 @@ namespace DragonLib.Types
         /// <summary>
         /// Verify if the position is inside the bounds.
         /// </summary>
-        /// <param name="bounds"></param>
+        /// <param name="bounds">The bounds to be used for verification</param>
         /// <returns></returns>
         public bool IsOutOfBounds(Bounds bounds)
         {
