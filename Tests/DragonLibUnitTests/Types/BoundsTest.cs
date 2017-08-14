@@ -54,11 +54,27 @@ namespace DragonLibUnitTests.Types
         }
 
         [TestMethod]
+        public void TestIsOutsideBoundsX()
+        {
+            Bounds limit = new Bounds(-2, 2, -2, 2);
+            bool result = limit.IsInsideXBounds(3);
+            Assert.AreEqual(false, result);
+        }
+
+        [TestMethod]
         public void TestIsInsideBoundsY()
         {
             Bounds limit = new Bounds(-2, 2, -2, 2);
             bool result = limit.IsInsideYBounds(-2);
             Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void TestIsOutsideBoundsY()
+        {
+            Bounds limit = new Bounds(-2, 2, -2, 2);
+            bool result = limit.IsInsideYBounds(-3);
+            Assert.AreEqual(false, result);
         }
 
         [TestMethod]
@@ -90,6 +106,23 @@ namespace DragonLibUnitTests.Types
             Position position = new Position(0, 0, 5);
             bool result = limit.IsInsideBounds(position);
             Assert.AreEqual(false, result);
+        }
+
+        [TestMethod]
+        public void TestBoundsConstructorWithLayers()
+        {
+            Bounds limit = new Bounds(0, 2, 0, 2, -1, 1);
+            Assert.AreEqual(-1, limit.MinLayer);
+            Assert.AreEqual(1, limit.MaxLayer);
+        }
+
+        [TestMethod]
+        public void TestBoundsLayerModify()
+        {
+            Bounds limit = new Bounds(0, 2, 0, 2, -1, 1);
+            limit.SetLayers(0, 2);
+            Assert.AreEqual(0, limit.MinLayer);
+            Assert.AreEqual(2, limit.MaxLayer);
         }
     }
 }
