@@ -9,11 +9,18 @@ namespace DragonLib.Entities
     {
         protected Position BoardPosition;
         protected string Location;
-        protected Boundaries Bounds;
+        protected Bounds Bounds;
 
         public Entity()
         {
             BoardPosition = new Position(0, 0);
+        }
+
+        public Entity(int positionX, int positionY) : this(positionX, positionY, 0) { }
+
+        public Entity(int positionX, int positionY, int layer)
+        {
+            BoardPosition = new Position(positionX, positionY, layer);
         }
 
         /// <summary>
@@ -26,6 +33,20 @@ namespace DragonLib.Entities
             BoardPosition.ChangePosition(positionX, positionY);
         }
 
+        /// <summary>
+        /// Move the entity by the specified amount.
+        /// </summary>
+        /// <param name="amountX"></param>
+        /// <param name="amountY"></param>
+        public void Move(int amountX, int amountY)
+        {
+            BoardPosition.Move(amountX, amountY);
+        }
+
+        /// <summary>
+        /// Return the position of the entity on the board.
+        /// </summary>
+        /// <returns></returns>
         public Position GetPosition()
         {
             return BoardPosition;
