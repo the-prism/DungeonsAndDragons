@@ -5,8 +5,8 @@
     <Authors>the-prism</Authors>
     <Company>Asra-Notion</Company>
     <Product>DragonLib</Product>
-    <AssemblyVersion>1.0.0.13</AssemblyVersion>
-    <FileVersion>1.0.0.13</FileVersion>
+    <AssemblyVersion>1.0.0.14</AssemblyVersion>
+    <FileVersion>1.0.0.14</FileVersion>
     <Description>Library for dungeons and dragons</Description>
   </PropertyGroup>
 

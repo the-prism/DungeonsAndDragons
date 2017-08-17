@@ -10,6 +10,8 @@ namespace DragonLib.Types
         public int PositionY { get; protected set; }
         public int Layer { get; protected set; }
 
+        public Position() : this(0, 0) { }
+
         public Position(int positionX, int positionY)
         {
             this.PositionX = positionX;
