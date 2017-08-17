@@ -11,16 +11,14 @@ namespace DragonLib.Entities
         protected string Location;
         protected Bounds Bounds;
 
-        public Entity()
-        {
-            BoardPosition = new Position(0, 0);
-        }
+        public Entity() : this(0, 0) { }
 
         public Entity(int positionX, int positionY) : this(positionX, positionY, 0) { }
 
         public Entity(int positionX, int positionY, int layer)
         {
             BoardPosition = new Position(positionX, positionY, layer);
+            Location = "";
         }
 
         /// <summary>
