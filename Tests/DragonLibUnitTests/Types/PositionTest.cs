@@ -149,5 +149,13 @@ namespace DragonLibUnitTests.Types
             Assert.AreEqual(0, position.PositionX);
             Assert.AreEqual(-5, position.PositionY);
         }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestArgumentException()
+        {
+            Position position = new Position();
+            position.IsOutOfBounds(null);
+        }
     }
 }

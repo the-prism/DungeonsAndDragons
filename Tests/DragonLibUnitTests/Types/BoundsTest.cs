@@ -10,7 +10,7 @@ namespace DragonLibUnitTests.Types
         [TestMethod]
         public void TestBoundsFrom0()
         {
-            Bounds limit = new Bounds(45, 25);
+            Bounds limit = new Bounds(0, 45, 0, 25);
             Assert.AreEqual(0, limit.MinX);
             Assert.AreEqual(0, limit.MinY);
             Assert.AreEqual(45, limit.MaxX);
@@ -123,6 +123,14 @@ namespace DragonLibUnitTests.Types
             limit.SetLayers(0, 2);
             Assert.AreEqual(0, limit.MinLayer);
             Assert.AreEqual(2, limit.MaxLayer);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void TestException()
+        {
+            Bounds limit = new Bounds(0, 0, 2, 2);
+            limit.IsInsideBounds(null);
         }
     }
 }
