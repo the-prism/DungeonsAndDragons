@@ -5,8 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="Dungeons and Dragons" Height="576" Width="1024">
-    <Grid>
-        
-    </Grid>
+        Title="Dungeons and Dragons" Height="720" Width="1280"
+        MinWidth="1024" MinHeight="640">
+    
 </Window>
