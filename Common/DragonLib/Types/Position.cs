@@ -10,6 +10,8 @@ namespace DragonLib.Types
         public int PositionY { get; protected set; }
         public int Layer { get; protected set; }
 
+        public Position() : this(0, 0) { }
+
         public Position(int positionX, int positionY)
         {
             this.PositionX = positionX;
@@ -89,22 +91,11 @@ namespace DragonLib.Types
         /// <returns></returns>
         public bool IsOutOfBounds(Bounds bounds)
         {
+            if (bounds == null)
+            {
+                throw new ArgumentNullException("bounds");
+            }
             return !bounds.IsInsideBounds(this);
-        }
-        
-        private bool IsOutOfBoundsX(Bounds bounds)
-        {
-            return !bounds.IsInsideXBounds(this.PositionX);
-        }
-        
-        private bool IsOutOfBoundsY(Bounds bounds)
-        {
-            return !bounds.IsInsideYBounds(this.PositionY);
-        }
-
-        private bool IsOutOfBoundsLayer(Bounds bounds)
-        {
-            return !bounds.IsInsideLayerBounds(this.Layer);
         }
     }
 }

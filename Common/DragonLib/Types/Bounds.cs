@@ -30,13 +30,6 @@ namespace DragonLib.Types
         }
 
         /// <summary>
-        /// Builds boudaries fron 0,0 to the specified values
-        /// </summary>
-        /// <param name="maxX">Maximum value for the X coordinates</param>
-        /// <param name="maxY">Maximum value for the Y coordinates</param>
-        public Bounds(int maxX, int maxY) : this(0, maxX, 0, maxY) { }
-
-        /// <summary>
         /// Builds boudaries with the specified coordinates and layers
         /// </summary>
         /// <param name="minX">Minimum value for the X coordinates</param>
@@ -100,6 +93,10 @@ namespace DragonLib.Types
         /// <returns></returns>
         public bool IsInsideBounds(Position position)
         {
+            if(position == null)
+            {
+                throw new ArgumentNullException("position");
+            }
             if (IgnoreLayer)
             {
                 return IsInsideXBounds(position.PositionX) && IsInsideYBounds(position.PositionY);
