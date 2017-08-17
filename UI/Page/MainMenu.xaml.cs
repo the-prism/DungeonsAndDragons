@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DragonLib;
 
 namespace UI.Page
 {
@@ -23,6 +24,8 @@ namespace UI.Page
         public MainMenu()
         {
             InitializeComponent();
+            BuildInfo.Content = "Build: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            BuildInfo.Content += ", Library: " + DragonLibVersion.GetVersion();
         }
     }
 }

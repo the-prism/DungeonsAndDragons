@@ -14,4 +14,12 @@ namespace DragonLib
 
         }
     }
+
+    public static class DragonLibVersion
+    {
+        public static string GetVersion()
+        {
+            return System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
+        }
+    }
 }

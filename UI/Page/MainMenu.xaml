@@ -7,18 +7,28 @@
              mc:Ignorable="d" 
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
-        <DockPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="18"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="22"/>
+        </Grid.RowDefinitions>
+        <DockPanel Grid.Row="0">
             <Menu DockPanel.Dock="Top">
-                <MenuItem Header="_File">
-                    <MenuItem Header="_Open"/>
-                    <MenuItem Header="_Close"/>
-                    <MenuItem Header="_Save"/>
+                <MenuItem Header="File">
+                    <MenuItem Header="Open"/>
+                    <MenuItem Header="Close"/>
+                    <MenuItem Header="Save"/>
+                </MenuItem>
+                <MenuItem Header="Edit">
+                    <MenuItem Header="Select"/>
                 </MenuItem>
             </Menu>
-            <StackPanel>
-                <TextBlock HorizontalAlignment="Left" Margin="12,12,0,0" TextWrapping="Wrap" Text="Dungeons and Dragons" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
-            </StackPanel>
         </DockPanel>
-        <StatusBar HorizontalAlignment="Stretch" Height="16" VerticalAlignment="Bottom"/>
+        <Grid Grid.Row="1">
+            <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="12,12,0,0" TextWrapping="Wrap" Text="Dungeons and Dragons" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        </Grid>        
+        <StatusBar Grid.Row="2" HorizontalAlignment="Stretch" Height="Auto" VerticalAlignment="Bottom">
+            <StatusBarItem x:Name="BuildInfo" HorizontalAlignment="Right" Content="Build Version"/>
+        </StatusBar>
     </Grid>
 </UserControl>
