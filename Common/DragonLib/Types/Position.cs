@@ -91,21 +91,37 @@ namespace DragonLib.Types
         /// <returns></returns>
         public bool IsOutOfBounds(Bounds bounds)
         {
+            if (bounds == null)
+            {
+                throw new ArgumentNullException("bounds");
+            }
             return !bounds.IsInsideBounds(this);
         }
         
         private bool IsOutOfBoundsX(Bounds bounds)
         {
+            if (bounds == null)
+            {
+                throw new ArgumentNullException("bounds");
+            }
             return !bounds.IsInsideXBounds(this.PositionX);
         }
         
         private bool IsOutOfBoundsY(Bounds bounds)
         {
+            if (bounds == null)
+            {
+                throw new ArgumentNullException("bounds");
+            }
             return !bounds.IsInsideYBounds(this.PositionY);
         }
 
         private bool IsOutOfBoundsLayer(Bounds bounds)
         {
+            if (bounds == null)
+            {
+                throw new ArgumentNullException("bounds");
+            }
             return !bounds.IsInsideLayerBounds(this.Layer);
         }
     }

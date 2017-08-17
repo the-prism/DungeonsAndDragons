@@ -93,6 +93,10 @@ namespace DragonLib.Types
         /// <returns></returns>
         public bool IsInsideBounds(Position position)
         {
+            if(position == null)
+            {
+                throw new ArgumentNullException("position");
+            }
             if (IgnoreLayer)
             {
                 return IsInsideXBounds(position.PositionX) && IsInsideYBounds(position.PositionY);
