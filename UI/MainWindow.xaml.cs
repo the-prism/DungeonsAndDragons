@@ -39,10 +39,13 @@ namespace UI
             this.Content = nextPage;
 
             if (nextPage is ISwitchable s)
+            {
                 s.UtilizeState(state);
+            }
             else
-                throw new ArgumentException("NextPage is not ISwitchable! "
-                  + nextPage.Name.ToString());
+            {
+                throw new ArgumentException("NextPage is not ISwitchable! " + nextPage.Name.ToString());
+            }
         }
     }
 }
