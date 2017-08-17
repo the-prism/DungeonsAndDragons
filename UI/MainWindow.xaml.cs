@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UI.Page;
 
 namespace UI
 {
@@ -23,6 +24,28 @@ namespace UI
         public MainWindow()
         {
             InitializeComponent();
+            Switcher.pageSwitcher = this;
+            Switcher.Switch(new MainMenu());
+        }
+
+        public void Navigate(UserControl nextPage)
+        {
+            //UIHeader.CurrentPage = nextPage.GetType();
+            this.Content = nextPage;
+        }
+
+        public void Navigate(UserControl nextPage, object state)
+        {
+            this.Content = nextPage;
+
+            if (nextPage is ISwitchable s)
+            {
+                s.UtilizeState(state);
+            }
+            else
+            {
+                throw new ArgumentException("NextPage is not ISwitchable! " + nextPage.Name.ToString());
+            }
         }
     }
 }
