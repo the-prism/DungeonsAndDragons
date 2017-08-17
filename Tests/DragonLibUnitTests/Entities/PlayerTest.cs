@@ -34,5 +34,19 @@ namespace DragonLibUnitTests.Entities
             Assert.AreEqual(2, item.GetPosition().PositionX);
             Assert.AreEqual(2, item.GetPosition().PositionY);
         }
+
+        [TestMethod]
+        public void TestTypePlayer()
+        {
+            Entity player = new Player();
+            Assert.AreEqual(typeof(Player), player.GetType());
+        }
+
+        [TestMethod]
+        public void TestTypeEntity()
+        {
+            Entity player = new Entity();
+            Assert.AreNotEqual(typeof(Player), player.GetType());
+        }
     }
 }
