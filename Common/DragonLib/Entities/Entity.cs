@@ -2,17 +2,22 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DragonLib.Types;
+using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace DragonLib.Entities
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Entity
     {
+        [JsonProperty]
         protected Position BoardPosition;
-        protected string Location;
+        [JsonProperty]
+        public string Location { get; protected set; }
+        [JsonProperty]
         protected Bounds Bounds;
 
         public Entity() : this(0, 0) { }
-
         public Entity(int positionX, int positionY) : this(positionX, positionY, 0) { }
 
         public Entity(int positionX, int positionY, int layer)
@@ -48,6 +53,39 @@ namespace DragonLib.Entities
         public Position GetPosition()
         {
             return BoardPosition;
+        }
+
+        /// <summary>
+        /// Sets the bounds for the entity.
+        /// Throws OutOfBoundsException if the position is not inside the bounds.
+        /// </summary>
+        /// <param name="limits">Object representing the bounds of the enitiy</param>
+        public void SetBounds(Bounds limits)
+        {
+            if (limits.IsInsideBounds(BoardPosition))
+            {
+                Bounds = limits;
+            }
+            else
+            {
+                throw new OutOfBoundsException();
+            }
+        }
+
+        /// <summary>
+        /// Sets the location for an entity
+        /// </summary>
+        /// <param name="location">The location of the entity</param>
+        public void SetLocation(string location)
+        {
+            if (string.IsNullOrEmpty(location))
+            {
+                throw new ArgumentNullException("location");
+            }
+            else
+            {
+                Location = location;
+            }
         }
     }
 }

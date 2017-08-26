@@ -9,6 +9,7 @@ namespace DragonLibUnitTests.Environnement
         [TestMethod]
         public void TestMethod1()
         {
+            Assert.Fail();
         }
     }
 }
