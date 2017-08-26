@@ -2,11 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace DragonLib.Entities
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Player : Entity
     {
+        [JsonProperty]
         protected string Owner;
         public Player() : base() { }
 

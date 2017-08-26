@@ -1,17 +1,26 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace DragonLib.Types
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Bounds
     {
+        [JsonProperty]
         public int MinX { get; protected set; }
+        [JsonProperty]
         public int MaxX { get; protected set; }
+        [JsonProperty]
         public int MinY { get; protected set; }
+        [JsonProperty]
         public int MaxY { get; protected set; }
+        [JsonProperty]
         public int MinLayer { get; protected set; }
+        [JsonProperty]
         public int MaxLayer { get; protected set; }
+        [JsonProperty]
         public bool IgnoreLayer { get; protected set; }
 
         /// <summary>

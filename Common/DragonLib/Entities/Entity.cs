@@ -2,13 +2,19 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 using DragonLib.Types;
+using Newtonsoft.Json;
+using System.Runtime.Serialization;
 
 namespace DragonLib.Entities
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Entity
     {
+        [JsonProperty]
         protected Position BoardPosition;
-        protected string Location;
+        [JsonProperty]
+        public string Location { get; protected set; }
+        [JsonProperty]
         protected Bounds Bounds;
 
         public Entity() : this(0, 0) { }

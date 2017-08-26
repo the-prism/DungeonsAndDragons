@@ -1,13 +1,18 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace DragonLib.Types
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class Position
     {
+        [JsonProperty]
         public int PositionX { get; protected set; }
+        [JsonProperty]
         public int PositionY { get; protected set; }
+        [JsonProperty]
         public int Layer { get; protected set; }
 
         public Position() : this(0, 0) { }
