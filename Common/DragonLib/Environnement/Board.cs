@@ -36,6 +36,26 @@ namespace DragonLib.Environnement
             }
         }
 
+        /// <summary>
+        /// Add an entity to the board
+        /// </summary>
+        /// <param name="entity"></param>
+        public void AddEntity(Entity entity)
+        {
+            entity.SetBounds(Limits);
+            Elements.Add(Elements.Count, entity);
+        }
+
+        /// <summary>
+        /// Add a player to the board
+        /// </summary>
+        /// <param name="entity"></param>
+        public void AddPlayer(Player player)
+        {
+            player.SetBounds(Limits);
+            Players.Add(Elements.Count, player);
+        }
+
         private void SetEntityBounds(Bounds bounds)
         {
             foreach (var item in Elements)
