@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\PlayerTest.cs" />
+    <Compile Include="Entities\EntityTest.cs" />
     <Compile Include="Environnement\BoardTest.cs" />
     <Compile Include="Runtime.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

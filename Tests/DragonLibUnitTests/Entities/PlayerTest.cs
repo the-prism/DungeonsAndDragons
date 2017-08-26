@@ -67,7 +67,7 @@ namespace DragonLibUnitTests.Entities
             string expected = "{\"Owner\":null,\"BoardPosition\":{\"PositionX\":0,\"PositionY\":0,\"Layer\":0},\"Bounds\":null,\"Location\":\"\"}";
             Assert.AreEqual(expected, json);
         }
-        
+
         [TestClass]
         public class TestDeserializePlayerIntoEntity
         {
