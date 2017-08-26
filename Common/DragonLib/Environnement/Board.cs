@@ -13,6 +13,8 @@ namespace DragonLib.Environnement
         [JsonProperty]
         protected Dictionary<int, Entity> Elements;
         [JsonProperty]
+        protected Dictionary<int, Player> Players;
+        [JsonProperty]
         protected Bounds Limits;
 
         public Board() { }
@@ -26,14 +28,27 @@ namespace DragonLib.Environnement
             if (limits != null)
             {
                 Limits = limits;
-                foreach (var item in Elements)
-                {
-                    item.Value.SetBounds(Limits);
-                }
+                SetEntityBounds(Limits);
             }
             else
             {
                 throw new ArgumentNullException("limits");
+            }
+        }
+
+        private void SetEntityBounds(Bounds bounds)
+        {
+            foreach (var item in Elements)
+            {
+                item.Value.SetBounds(Limits);
+            }
+        }
+
+        private void SetPlayerBounds(Bounds bounds)
+        {
+            foreach (var item in Players)
+            {
+                item.Value.SetBounds(Limits);
             }
         }
     }
