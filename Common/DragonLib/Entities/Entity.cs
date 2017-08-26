@@ -14,7 +14,6 @@ namespace DragonLib.Entities
         protected Position BoardPosition;
         [JsonProperty]
         public string Location { get; protected set; }
-        [JsonProperty]
         protected Bounds Bounds;
 
         public Entity() : this(0, 0) { }

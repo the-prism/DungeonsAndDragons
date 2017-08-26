@@ -17,7 +17,7 @@ namespace DragonLibUnitTests.Entities
             tester.SetBounds(limits);
             tester.SetLocation("Here");
             string json = JsonConvert.SerializeObject(tester);
-            string expected = "{\"BoardPosition\":{\"PositionX\":4,\"PositionY\":3,\"Layer\":1},\"Bounds\":{\"MinX\":0,\"MaxX\":34,\"MinY\":2,\"MaxY\":3,\"MinLayer\":0,\"MaxLayer\":5,\"IgnoreLayer\":false},\"Location\":\"Here\"}";
+            string expected = "{\"BoardPosition\":{\"PositionX\":4,\"PositionY\":3,\"Layer\":1},\"Location\":\"Here\"}";
             Assert.AreEqual(expected, json);
         }
 
@@ -70,7 +70,7 @@ namespace DragonLibUnitTests.Entities
         {
             Entity test = new Entity();
             string json = JsonConvert.SerializeObject(test);
-            string expected = "{\"BoardPosition\":{\"PositionX\":0,\"PositionY\":0,\"Layer\":0},\"Bounds\":null,\"Location\":\"\"}";
+            string expected = "{\"BoardPosition\":{\"PositionX\":0,\"PositionY\":0,\"Layer\":0},\"Location\":\"\"}";
             Assert.AreEqual(expected, json);
         }
     }
