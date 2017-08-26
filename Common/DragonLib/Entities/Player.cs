@@ -24,5 +24,21 @@ namespace DragonLib.Entities
         {
             return Owner;
         }
+
+        /// <summary>
+        /// Sets who owns the player unit
+        /// </summary>
+        /// <param name="owner">Owner of the unit</param>
+        public void SetOwner(string owner)
+        {
+            if (string.IsNullOrEmpty(owner))
+            {
+                throw new ArgumentNullException("owner");
+            }
+            else
+            {
+                Owner = owner;
+            }
+        }
     }
 }

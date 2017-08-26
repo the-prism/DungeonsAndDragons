@@ -44,65 +44,12 @@ namespace DragonLibUnitTests.Entities
         }
 
         [TestMethod]
-        public void TestTypeEntity()
-        {
-            Entity player = new Entity();
-            Assert.AreNotEqual(typeof(Player), player.GetType());
-        }
-
-        [TestMethod]
-        public void TestSerializationEntity()
-        {
-            Entity test = new Entity();
-            string json = JsonConvert.SerializeObject(test);
-            string expected = "{\"BoardPosition\":{\"PositionX\":0,\"PositionY\":0,\"Layer\":0},\"Bounds\":null,\"Location\":\"\"}";
-            Assert.AreEqual(expected, json);
-        }
-
-        [TestMethod]
         public void TestSerializationPlayer()
         {
             Player test = new Player();
             string json = JsonConvert.SerializeObject(test);
             string expected = "{\"Owner\":null,\"BoardPosition\":{\"PositionX\":0,\"PositionY\":0,\"Layer\":0},\"Bounds\":null,\"Location\":\"\"}";
             Assert.AreEqual(expected, json);
-        }
-
-        [TestClass]
-        public class TestDeserializePlayerIntoEntity
-        {
-            static Entity tester;
-            static string player = "{\"Owner\":null,\"BoardPosition\":{\"PositionX\":2,\"PositionY\":1,\"Layer\":-1},\"Location\":\"toto\",\"Bounds\":null}";
-
-            [ClassInitialize]
-            public static void SetUp(TestContext context)
-            {
-                tester = JsonConvert.DeserializeObject<Entity>(player);
-            }
-
-            [TestMethod]
-            public void TestLocation()
-            {
-                Assert.AreEqual("toto", tester.Location);
-            }
-
-            [TestMethod]
-            public void TestPositionX()
-            {
-                Assert.AreEqual(2, tester.GetPosition().PositionX);
-            }
-
-            [TestMethod]
-            public void TestPositionY()
-            {
-                Assert.AreEqual(1, tester.GetPosition().PositionY);
-            }
-
-            [TestMethod]
-            public void TestLayer()
-            {
-                Assert.AreEqual(-1, tester.GetPosition().Layer);
-            }
         }
 
         [TestClass]
@@ -146,6 +93,19 @@ namespace DragonLibUnitTests.Entities
             {
                 Assert.IsNull(tester.GetOwner());
             }
+        }
+
+        [TestMethod]
+        public void TestComplexSerialization()
+        {
+            Player tester = new Player(24, 13, 31);
+            Bounds limits = new Bounds(20, 34, 2, 33, 10, 54);
+            tester.SetBounds(limits);
+            tester.SetLocation("someWhere");
+            tester.SetOwner("dude");
+            string json = JsonConvert.SerializeObject(tester);
+            string expected = "{\"Owner\":\"dude\",\"BoardPosition\":{\"PositionX\":24,\"PositionY\":13,\"Layer\":31},\"Bounds\":{\"MinX\":20,\"MaxX\":34,\"MinY\":2,\"MaxY\":33,\"MinLayer\":10,\"MaxLayer\":54,\"IgnoreLayer\":false},\"Location\":\"someWhere\"}";
+            Assert.AreEqual(expected, json);
         }
     }
 }
