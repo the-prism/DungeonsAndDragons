@@ -11,10 +11,9 @@ namespace DragonLib.Entities
     {
         [JsonProperty]
         protected string Owner;
+
         public Player() : base() { }
-
         public Player(int positionX, int positionY) : base(positionX, positionY) { }
-
         public Player(int positionX, int positionY, int layer) : base(positionX, positionY, layer) { }
 
         /// <summary>
