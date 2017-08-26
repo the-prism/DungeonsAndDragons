@@ -14,7 +14,7 @@ namespace DragonLibUnitTests.Entities
         {
             Player test = new Player();
             test.MoveTo(4, 67);
-            Position result = test.GetPosition();
+            Position result = test.BoardPosition;
             Assert.AreEqual(4, result.PositionX);
         }
 
@@ -23,7 +23,7 @@ namespace DragonLibUnitTests.Entities
         {
             Player test = new Player();
             test.MoveTo(4, 67);
-            Position result = test.GetPosition();
+            Position result = test.BoardPosition;
             Assert.AreEqual(67, result.PositionY);
         }
 
@@ -32,8 +32,8 @@ namespace DragonLibUnitTests.Entities
         {
             Entity item = new Player(4, 3);
             item.Move(-2, -1);
-            Assert.AreEqual(2, item.GetPosition().PositionX);
-            Assert.AreEqual(2, item.GetPosition().PositionY);
+            Assert.AreEqual(2, item.BoardPosition.PositionX);
+            Assert.AreEqual(2, item.BoardPosition.PositionY);
         }
 
         [TestMethod]
@@ -73,19 +73,19 @@ namespace DragonLibUnitTests.Entities
             [TestMethod]
             public void TestPositionX()
             {
-                Assert.AreEqual(5, tester.GetPosition().PositionX);
+                Assert.AreEqual(5, tester.BoardPosition.PositionX);
             }
 
             [TestMethod]
             public void TestPositionY()
             {
-                Assert.AreEqual(-3, tester.GetPosition().PositionY);
+                Assert.AreEqual(-3, tester.BoardPosition.PositionY);
             }
 
             [TestMethod]
             public void TestLayer()
             {
-                Assert.AreEqual(2, tester.GetPosition().Layer);
+                Assert.AreEqual(2, tester.BoardPosition.Layer);
             }
 
             [TestMethod]

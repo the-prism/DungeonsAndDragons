@@ -42,19 +42,19 @@ namespace DragonLibUnitTests.Entities
             [TestMethod]
             public void TestPositionX()
             {
-                Assert.AreEqual(2, tester.GetPosition().PositionX);
+                Assert.AreEqual(2, tester.BoardPosition.PositionX);
             }
 
             [TestMethod]
             public void TestPositionY()
             {
-                Assert.AreEqual(1, tester.GetPosition().PositionY);
+                Assert.AreEqual(1, tester.BoardPosition.PositionY);
             }
 
             [TestMethod]
             public void TestLayer()
             {
-                Assert.AreEqual(-1, tester.GetPosition().Layer);
+                Assert.AreEqual(-1, tester.BoardPosition.Layer);
             }
         }
 

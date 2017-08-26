@@ -11,11 +11,11 @@ namespace DragonLib.Environnement
     public class Board
     {
         [JsonProperty]
-        protected Dictionary<int, Entity> Elements;
+        public Dictionary<int, Entity> Elements { get; protected set; }
         [JsonProperty]
-        protected Dictionary<int, Player> Players;
+        public Dictionary<int, Player> Players { get; protected set; }
         [JsonProperty]
-        protected Bounds Limits;
+        public Bounds Limits { get; protected set; }
 
         public Board() { }
 

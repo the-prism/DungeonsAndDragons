@@ -11,7 +11,7 @@ namespace DragonLib.Entities
     public class Entity
     {
         [JsonProperty]
-        protected Position BoardPosition;
+        public Position BoardPosition { get; protected set; }
         [JsonProperty]
         public string Location { get; protected set; }
         protected Bounds Bounds;
@@ -44,16 +44,7 @@ namespace DragonLib.Entities
         {
             BoardPosition.Move(amountX, amountY);
         }
-
-        /// <summary>
-        /// Return the position of the entity on the board.
-        /// </summary>
-        /// <returns></returns>
-        public Position GetPosition()
-        {
-            return BoardPosition;
-        }
-
+        
         /// <summary>
         /// Sets the bounds for the entity.
         /// Throws OutOfBoundsException if the position is not inside the bounds.
