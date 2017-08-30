@@ -17,7 +17,25 @@ namespace DragonLib.Environnement
         [JsonProperty]
         public Bounds Limits { get; protected set; }
 
-        public Board() { }
+        public Board() : this(0, 0) { }
+
+        public Board(int sizeX, int sizeY)
+        {
+            Elements = new Dictionary<int, Entity>();
+            Players = new Dictionary<int, Player>();
+            Limits = new Bounds(0, sizeX, 0, sizeY, 0, 2);
+        }
+        public Board(int sizeX, int sizeY, List<Entity> entities, List<Player> players) : this(sizeX, sizeY)
+        {
+            foreach (Entity entity in entities)
+            {
+                this.AddEntity(entity);
+            }
+            foreach (Player player in players)
+            {
+                this.AddPlayer(player);
+            }
+        }
 
         /// <summary>
         /// Set the bounds of the board and each elements on it.
@@ -29,6 +47,7 @@ namespace DragonLib.Environnement
             {
                 Limits = limits;
                 SetEntityBounds(Limits);
+                SetPlayerBounds(Limits);
             }
             else
             {
@@ -53,7 +72,7 @@ namespace DragonLib.Environnement
         public void AddPlayer(Player player)
         {
             player.SetBounds(Limits);
-            Players.Add(Elements.Count, player);
+            Players.Add(Players.Count, player);
         }
 
         private void SetEntityBounds(Bounds bounds)
