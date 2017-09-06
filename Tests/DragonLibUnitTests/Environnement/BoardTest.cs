@@ -4,6 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using DragonLib.Environnement;
 using DragonLib.Entities;
 using DragonLib.Types;
+using Newtonsoft.Json;
 
 namespace DragonLibUnitTests.Environnement
 {
@@ -49,8 +50,10 @@ namespace DragonLibUnitTests.Environnement
             {
                 Player player1 = new Player(2, 4, 1);
                 player1.SetLocation("Game Board Layer 1");
+                player1.SetOwner("Someone");
                 Player player2 = new Player(3, 2, 0);
                 player2.SetLocation("Game Board Layer 0");
+                player2.SetOwner("some other dude");
                 Actors = new List<Player>() { player1, player2 };
             }
 
@@ -58,6 +61,36 @@ namespace DragonLibUnitTests.Environnement
             public void TestSuccesFullInit()
             {
                 Assert.IsNotNull(Game);
+            }
+
+            [TestMethod]
+            public void TestSerialization()
+            {
+                string serialized = JsonConvert.SerializeObject(Game);
+                string expected = "{\"Elements\":[" +
+                    "{\"BoardPosition\":{\"PositionX\":6,\"PositionY\":10,\"Layer\":0},\"Location\":\"Game Board Layer 0\"}," +
+                    "{\"BoardPosition\":{\"PositionX\":10,\"PositionY\":20,\"Layer\":2},\"Location\":\"Game Board Layer 2\"}," +
+                    "{\"BoardPosition\":{\"PositionX\":5,\"PositionY\":10,\"Layer\":1},\"Location\":\"Game Board Layer 1\"}," +
+                    "{\"BoardPosition\":{\"PositionX\":4,\"PositionY\":17,\"Layer\":1},\"Location\":\"Game Board Layer 1\"}]," +
+                    "\"Players\":[{\"Owner\":\"Someone\",\"BoardPosition\":{\"PositionX\":2,\"PositionY\":4,\"Layer\":1},\"Location\":\"Game Board Layer 1\"}," +
+                    "{\"Owner\":\"some other dude\",\"BoardPosition\":{\"PositionX\":3,\"PositionY\":2,\"Layer\":0},\"Location\":\"Game Board Layer 0\"}]," +
+                    "\"Limits\":{\"MinX\":0,\"MaxX\":10,\"MinY\":0,\"MaxY\":20,\"MinLayer\":0,\"MaxLayer\":2,\"IgnoreLayer\":false}}";
+                Assert.AreEqual(expected, serialized);
+            }
+
+            [TestMethod]
+            public void TestDeserialize()
+            {
+                string serialized = "{\"Elements\":[" +
+                    "{\"BoardPosition\":{\"PositionX\":6,\"PositionY\":10,\"Layer\":0},\"Location\":\"Game Board Layer 0\"}," +
+                    "{\"BoardPosition\":{\"PositionX\":10,\"PositionY\":20,\"Layer\":2},\"Location\":\"Game Board Layer 2\"}," +
+                    "{\"BoardPosition\":{\"PositionX\":5,\"PositionY\":10,\"Layer\":1},\"Location\":\"Game Board Layer 1\"}," +
+                    "{\"BoardPosition\":{\"PositionX\":4,\"PositionY\":17,\"Layer\":1},\"Location\":\"Game Board Layer 1\"}]," +
+                    "\"Players\":[{\"Owner\":\"Someone\",\"BoardPosition\":{\"PositionX\":2,\"PositionY\":4,\"Layer\":1},\"Location\":\"Game Board Layer 1\"}," +
+                    "{\"Owner\":\"some other dude\",\"BoardPosition\":{\"PositionX\":3,\"PositionY\":2,\"Layer\":0},\"Location\":\"Game Board Layer 0\"}]," +
+                    "\"Limits\":{\"MinX\":0,\"MaxX\":10,\"MinY\":0,\"MaxY\":20,\"MinLayer\":0,\"MaxLayer\":2,\"IgnoreLayer\":false}}";
+                Board newBoard = JsonConvert.DeserializeObject<Board>(serialized);
+                Assert.AreEqual(Game, newBoard);
             }
         }
     }

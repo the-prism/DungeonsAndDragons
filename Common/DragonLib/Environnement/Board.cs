@@ -11,9 +11,9 @@ namespace DragonLib.Environnement
     public class Board
     {
         [JsonProperty]
-        public Dictionary<int, Entity> Elements { get; protected set; }
+        public List<Entity> Elements { get; protected set; }
         [JsonProperty]
-        public Dictionary<int, Player> Players { get; protected set; }
+        public List<Player> Players { get; protected set; }
         [JsonProperty]
         public Bounds Limits { get; protected set; }
 
@@ -21,8 +21,8 @@ namespace DragonLib.Environnement
 
         public Board(int sizeX, int sizeY)
         {
-            Elements = new Dictionary<int, Entity>();
-            Players = new Dictionary<int, Player>();
+            Elements = new List<Entity>();
+            Players = new List<Player>();
             Limits = new Bounds(0, sizeX, 0, sizeY, 0, 2);
         }
         public Board(int sizeX, int sizeY, List<Entity> entities, List<Player> players) : this(sizeX, sizeY)
@@ -62,7 +62,7 @@ namespace DragonLib.Environnement
         public void AddEntity(Entity entity)
         {
             entity.SetBounds(Limits);
-            Elements.Add(Elements.Count, entity);
+            Elements.Add(entity);
         }
 
         /// <summary>
@@ -72,14 +72,14 @@ namespace DragonLib.Environnement
         public void AddPlayer(Player player)
         {
             player.SetBounds(Limits);
-            Players.Add(Players.Count, player);
+            Players.Add(player);
         }
 
         private void SetEntityBounds(Bounds bounds)
         {
             foreach (var item in Elements)
             {
-                item.Value.SetBounds(Limits);
+                item.SetBounds(Limits);
             }
         }
 
@@ -87,7 +87,19 @@ namespace DragonLib.Environnement
         {
             foreach (var item in Players)
             {
-                item.Value.SetBounds(Limits);
+                item.SetBounds(Limits);
+            }
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType().Equals(typeof(Board)))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }
