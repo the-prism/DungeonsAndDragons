@@ -8,22 +8,22 @@
              d:DesignHeight="720" d:DesignWidth="1280">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="18"/>
+            <RowDefinition Height="26"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="22"/>
         </Grid.RowDefinitions>
-        <DockPanel Grid.Row="0">
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="File">
+        <StackPanel Grid.Row="0">
+            <Menu x:Name="Menu">
+                <MenuItem Header="File" Height="26">
                     <MenuItem Header="Open"/>
                     <MenuItem Header="Close"/>
                     <MenuItem Header="Save"/>
                 </MenuItem>
-                <MenuItem Header="Edit">
+                <MenuItem Header="Edit" Height="26">
                     <MenuItem Header="Select"/>
                 </MenuItem>
             </Menu>
-        </DockPanel>
+        </StackPanel>
         <Grid Grid.Row="1">
             <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="12,12,0,0" TextWrapping="Wrap" Text="Dungeons and Dragons" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
         </Grid>        
