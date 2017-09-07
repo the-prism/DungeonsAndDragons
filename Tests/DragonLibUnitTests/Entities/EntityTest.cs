@@ -16,8 +16,8 @@ namespace DragonLibUnitTests.Entities
             Bounds limits = new Bounds(0, 34, 2, 3, 0, 5);
             tester.SetBounds(limits);
             tester.SetLocation("Here");
-            string json = JsonConvert.SerializeObject(tester);
-            string expected = "{\"BoardPosition\":{\"PositionX\":4,\"PositionY\":3,\"Layer\":1},\"Bounds\":{\"MinX\":0,\"MaxX\":34,\"MinY\":2,\"MaxY\":3,\"MinLayer\":0,\"MaxLayer\":5,\"IgnoreLayer\":false},\"Location\":\"Here\"}";
+            string json = tester.SerializeJson();
+            string expected = "{\"BoardPosition\":{\"PositionX\":4,\"PositionY\":3,\"Layer\":1},\"Location\":\"Here\"}";
             Assert.AreEqual(expected, json);
         }
 
@@ -42,19 +42,19 @@ namespace DragonLibUnitTests.Entities
             [TestMethod]
             public void TestPositionX()
             {
-                Assert.AreEqual(2, tester.GetPosition().PositionX);
+                Assert.AreEqual(2, tester.BoardPosition.PositionX);
             }
 
             [TestMethod]
             public void TestPositionY()
             {
-                Assert.AreEqual(1, tester.GetPosition().PositionY);
+                Assert.AreEqual(1, tester.BoardPosition.PositionY);
             }
 
             [TestMethod]
             public void TestLayer()
             {
-                Assert.AreEqual(-1, tester.GetPosition().Layer);
+                Assert.AreEqual(-1, tester.BoardPosition.Layer);
             }
         }
 
@@ -69,8 +69,8 @@ namespace DragonLibUnitTests.Entities
         public void TestSerializationEntity()
         {
             Entity test = new Entity();
-            string json = JsonConvert.SerializeObject(test);
-            string expected = "{\"BoardPosition\":{\"PositionX\":0,\"PositionY\":0,\"Layer\":0},\"Bounds\":null,\"Location\":\"\"}";
+            string json = test.SerializeJson();
+            string expected = "{\"BoardPosition\":{\"PositionX\":0,\"PositionY\":0,\"Layer\":0},\"Location\":\"\"}";
             Assert.AreEqual(expected, json);
         }
     }

@@ -11,10 +11,9 @@ namespace DragonLib.Entities
     public class Entity
     {
         [JsonProperty]
-        protected Position BoardPosition;
+        public Position BoardPosition { get; protected set; }
         [JsonProperty]
         public string Location { get; protected set; }
-        [JsonProperty]
         protected Bounds Bounds;
 
         public Entity() : this(0, 0) { }
@@ -44,15 +43,6 @@ namespace DragonLib.Entities
         public void Move(int amountX, int amountY)
         {
             BoardPosition.Move(amountX, amountY);
-        }
-
-        /// <summary>
-        /// Return the position of the entity on the board.
-        /// </summary>
-        /// <returns></returns>
-        public Position GetPosition()
-        {
-            return BoardPosition;
         }
 
         /// <summary>
@@ -86,6 +76,43 @@ namespace DragonLib.Entities
             {
                 Location = location;
             }
+        }
+
+        /// <summary>
+        /// Use Newtonsoft.Json to serialize the object into a json string
+        /// </summary>
+        /// <returns>Serialized values of the object</returns>
+        public string SerializeJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+
+        /// <summary>
+        /// Compare 2 entities to determine if they are equal in value
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType().Equals(typeof(Entity)))
+            {
+                Entity entity = (Entity)obj;
+                return CompareValues(entity);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Compare entity values
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        protected bool CompareValues(Entity entity)
+        {
+            return BoardPosition.Equals(entity.BoardPosition) && Location.Equals(entity.Location) && Bounds.Equals(entity.Bounds);
         }
     }
 }

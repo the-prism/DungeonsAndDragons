@@ -102,5 +102,28 @@ namespace DragonLib.Types
             }
             return !bounds.IsInsideBounds(this);
         }
+
+        /// <summary>
+        /// Compare 2 positions an determine if they are the same values
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType().Equals(typeof(Position)))
+            {
+                Position position = (Position)obj;
+                return ComparePositions(ref position);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool ComparePositions(ref Position value)
+        {
+            return PositionX == value.PositionX && PositionY == value.PositionY && Layer == value.Layer;
+        }
     }
 }

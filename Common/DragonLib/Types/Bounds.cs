@@ -145,5 +145,28 @@ namespace DragonLib.Types
         {
             return layer >= MinLayer && layer <= MaxLayer;
         }
+
+        /// <summary>
+        /// Compare 2 sets of bounds to determine if the are the same
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType().Equals(typeof(Bounds)))
+            {
+                Bounds bounds = (Bounds)obj;
+                return CompareBounds(ref bounds);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool CompareBounds(ref Bounds value)
+        {
+            return MinX == value.MinX && MaxX == value.MaxX && MinY == value.MinY && MaxY == value.MaxY && MinLayer == value.MinLayer && MaxLayer == value.MaxLayer && IgnoreLayer == value.IgnoreLayer;
+        }
     }
 }
