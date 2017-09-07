@@ -47,7 +47,7 @@ namespace DragonLibUnitTests.Entities
         public void TestSerializationPlayer()
         {
             Player test = new Player();
-            string json = JsonConvert.SerializeObject(test);
+            string json = test.SerializeJson();
             string expected = "{\"Owner\":null,\"BoardPosition\":{\"PositionX\":0,\"PositionY\":0,\"Layer\":0},\"Location\":\"\"}";
             Assert.AreEqual(expected, json);
         }
@@ -103,7 +103,7 @@ namespace DragonLibUnitTests.Entities
             tester.SetBounds(limits);
             tester.SetLocation("someWhere");
             tester.SetOwner("dude");
-            string json = JsonConvert.SerializeObject(tester);
+            string json = tester.SerializeJson();
             string expected = "{\"Owner\":\"dude\",\"BoardPosition\":{\"PositionX\":24,\"PositionY\":13,\"Layer\":31},\"Location\":\"someWhere\"}";
             Assert.AreEqual(expected, json);
         }

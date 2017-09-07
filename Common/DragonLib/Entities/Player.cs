@@ -40,5 +40,18 @@ namespace DragonLib.Entities
                 Owner = owner;
             }
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType().Equals(typeof(Player)))
+            {
+                Player player = (Player)obj;
+                return CompareValues(player) && Owner.Equals(player.Owner);
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }

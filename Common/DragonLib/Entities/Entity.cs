@@ -44,7 +44,7 @@ namespace DragonLib.Entities
         {
             BoardPosition.Move(amountX, amountY);
         }
-        
+
         /// <summary>
         /// Sets the bounds for the entity.
         /// Throws OutOfBoundsException if the position is not inside the bounds.
@@ -76,6 +76,43 @@ namespace DragonLib.Entities
             {
                 Location = location;
             }
+        }
+
+        /// <summary>
+        /// Use Newtonsoft.Json to serialize the object into a json string
+        /// </summary>
+        /// <returns>Serialized values of the object</returns>
+        public string SerializeJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+
+        /// <summary>
+        /// Compare 2 entities to determine if they are equal in value
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
+        public override bool Equals(object obj)
+        {
+            if (obj.GetType().Equals(typeof(Entity)))
+            {
+                Entity entity = (Entity)obj;
+                return CompareValues(entity);
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// Compare entity values
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <returns></returns>
+        protected bool CompareValues(Entity entity)
+        {
+            return BoardPosition.Equals(entity.BoardPosition) && Location.Equals(entity.Location) && Bounds.Equals(entity.Bounds);
         }
     }
 }

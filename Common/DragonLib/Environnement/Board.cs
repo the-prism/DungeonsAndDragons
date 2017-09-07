@@ -4,6 +4,9 @@ using System.Text;
 using DragonLib.Types;
 using DragonLib.Entities;
 using Newtonsoft.Json;
+using System.Threading.Tasks;
+using System.Threading;
+using System.Runtime.Serialization;
 
 namespace DragonLib.Environnement
 {
@@ -91,16 +94,90 @@ namespace DragonLib.Environnement
             }
         }
 
+        /// <summary>
+        /// Use Newtonsoft.Json to serialize the object into a json string
+        /// </summary>
+        /// <returns>Serialized values of the object</returns>
+        public string SerializeJson()
+        {
+            return JsonConvert.SerializeObject(this);
+        }
+
+        /// <summary>
+        /// Evaluate if the 2 boards contain the same values
+        /// </summary>
+        /// <param name="obj"></param>
+        /// <returns></returns>
         public override bool Equals(object obj)
         {
             if (obj.GetType().Equals(typeof(Board)))
             {
-                return true;
+                Board board = (Board)obj;
+                bool objectsEquals = ElementsEquals(board.Elements);
+                objectsEquals = objectsEquals && PlayerEquals(board.Players);
+                return objectsEquals;
             }
             else
             {
                 return false;
             }
+        }
+
+        private bool ElementsEquals(List<Entity> list)
+        {
+            if (list.Count == Elements.Count)
+            {
+                Entity[] objArray = list.ToArray();
+                Entity[] localArray = this.Elements.ToArray();
+                bool result = true;
+
+                Parallel.For(0, localArray.Length,
+                    index =>
+                    {
+                        if (!objArray[index].Equals(localArray[index]))
+                        {
+                            result = false;
+                        }
+                    });
+                return result;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        private bool PlayerEquals(List<Player> list)
+        {
+            if (list.Count == Players.Count)
+            {
+                Player[] objArray = list.ToArray();
+                Player[] localArray = this.Players.ToArray();
+                bool result = true;
+
+                Parallel.For(0, localArray.Length,
+                    index =>
+                    {
+                        if (!objArray[index].Equals(localArray[index]))
+                        {
+                            result = false;
+                        }
+                    });
+                return result;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        /// <summary>
+        /// After the board is deserialized, bounds needs to be updated on all containing objects
+        /// </summary>
+        [OnDeserialized]
+        protected void OnDeserialized(StreamingContext context)
+        {
+            this.SetBounds(this.Limits);
         }
     }
 }
