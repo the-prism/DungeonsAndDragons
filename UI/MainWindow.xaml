@@ -8,7 +8,9 @@
                       mc:Ignorable="d"
                       Title="Dungeons and Dragons" Height="720" Width="1280"
                       ShowIconOnTitleBar="True"
-                      MinWidth="1024" MinHeight="640">
+                      MinWidth="1024" MinHeight="640"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      NonActiveGlowBrush="#CDFF0000">
                       <!--Icon="" Figure out how to link to the resource app.ico-->
 
     <Controls:MetroWindow.WindowButtonCommands>
