@@ -9,10 +9,8 @@
                       Title="Dungeons and Dragons" Height="720" Width="1280"
                       ShowIconOnTitleBar="True"
                       MinWidth="1024" MinHeight="640"
-                      GlowBrush="{DynamicResource AccentColorBrush}"
                       NonActiveGlowBrush="#CDFF0000"
                       Icon="pack://application:,,,/DungeonsDragons;component/Resources/Icon/app.ico">
-                      <!--Icon="" Figure out how to link to the resource app.ico-->
 
     <Controls:MetroWindow.WindowButtonCommands>
         <Controls:WindowButtonCommands Template="{DynamicResource MahApps.Metro.Templates.WindowButtonCommands.Win10}" />
@@ -20,6 +18,11 @@
 
     <Controls:MetroWindow.RightWindowCommands>
         <Controls:WindowCommands>
+            <Button>
+                <StackPanel>
+                    <TextBlock Text="File"></TextBlock>
+                </StackPanel>
+            </Button>
             <Button>
                 <StackPanel>
                     <TextBlock Text="Settings"></TextBlock>

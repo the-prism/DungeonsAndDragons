@@ -24,7 +24,6 @@ namespace UI.Page
         public MainMenu()
         {
             InitializeComponent();
-            Menu.Background = SystemParameters.WindowGlassBrush;
             BuildInfo.Content = "Build: " + System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString();
             BuildInfo.Content += ", Library: " + DragonLibVersion.GetVersion();
         }

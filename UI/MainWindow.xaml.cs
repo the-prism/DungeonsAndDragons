@@ -25,6 +25,8 @@ namespace UI
         public MainWindow()
         {
             InitializeComponent();
+            this.WindowTitleBrush = SystemParameters.WindowGlassBrush;
+            this.GlowBrush = SystemParameters.WindowGlassBrush;
             Switcher.pageSwitcher = this;
             Switcher.Switch(new MainMenu());
         }

@@ -12,18 +12,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="22"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="0">
-            <Menu x:Name="Menu">
-                <MenuItem Header="File" Height="26">
-                    <MenuItem Header="Open"/>
-                    <MenuItem Header="Close"/>
-                    <MenuItem Header="Save"/>
-                </MenuItem>
-                <MenuItem Header="Edit" Height="26">
-                    <MenuItem Header="Select"/>
-                </MenuItem>
-            </Menu>
-        </StackPanel>
+        
         <Grid Grid.Row="1">
             <TextBlock Grid.Row="1" HorizontalAlignment="Left" Margin="12,12,0,0" TextWrapping="Wrap" Text="Dungeons and Dragons" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
         </Grid>        
